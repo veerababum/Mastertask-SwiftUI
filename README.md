@@ -55,6 +55,25 @@ MasterTaskCode-SwiftUI/
 - Networking logic is centralized in `Services/` for reuse.
 - The app uses Core Data model files in `MasterTaskCode.xcdatamodeld/`.
 
+## Continuous Integration
+
+This repository includes a GitHub Actions pipeline at `.github/workflows/branch-ci.yml`.
+The workflow runs on `push` and `pull_request` events for the following branch patterns:
+
+- `main`
+- `develop`
+- `feature/**`
+- `bugfix/**`
+- `hotfix/**`
+- `release/**`
+
+The CI job performs:
+
+- repository checkout
+- Xcode setup on macOS
+- build of `MasterTaskCode.xcodeproj`
+- unit and UI tests via `xcodebuild test`
+
 ## Useful Files
 
 - `MasterTaskCode/Helpers/AlertVC.swift` - alert presentation helper
